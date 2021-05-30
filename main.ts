@@ -24,9 +24,8 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile6`, function (sprite, l
     tiles.setTileAt(location, assets.tile`transparency16`)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile15`, function (sprite, location) {
-    game.over(true)
-    music.stopAllSounds()
     music.playMelody("E C5 B A F B C5 C ", 120)
+    game.over(true, effects.confetti)
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava0, function (sprite, location) {
     info.changeLifeBy(-1)
@@ -269,6 +268,6 @@ controller.moveSprite(mySprite, 100, 0)
 info.setLife(3)
 scene.cameraFollowSprite(mySprite)
 info.startCountdown(90)
-forever(function () {
+for (let index = 0; index < 10; index++) {
     music.playMelody("C - - C D - E D ", 120)
-})
+}
