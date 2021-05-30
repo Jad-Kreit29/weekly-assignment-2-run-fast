@@ -25,6 +25,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile6`, function (sprite, l
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile15`, function (sprite, location) {
     game.over(true)
+    music.stopAllSounds()
     music.playMelody("E C5 B A F B C5 C ", 120)
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava0, function (sprite, location) {
@@ -97,6 +98,11 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.buttonOrangeDepressed, fu
     tiles.setWallAt(tiles.getTileLocation(43, 13), false)
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava1, function (sprite, location) {
+    info.changeLifeBy(-1)
+    mySprite.setPosition(30, 200)
+    music.bigCrash.play()
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardWater, function (sprite, location) {
     info.changeLifeBy(-1)
     mySprite.setPosition(30, 200)
     music.bigCrash.play()
